@@ -12,28 +12,32 @@ con difficoltà 2=> tra 1 e 50
 */
 
 
-var difficoltà = prompt("Scegli il livello di difficoltà \nFacile\nMedio\nDifficile").trim().toLowerCase();
+var difficoltà = prompt("Scegli il livello di difficoltà \nFacile o F\nMedio o M\nDifficile o D").trim().toLowerCase();
 
 
-while(!isNaN(difficoltà) || difficoltà != "facile" && difficoltà != "medio" && difficoltà != "difficile"){
+while(!isNaN(difficoltà) || (difficoltà != "facile" && difficoltà != "f" ) && (difficoltà != "medio" && difficoltà != "m") && (difficoltà != "difficile" && difficoltà != "d")){
+
   difficoltà = prompt("Scegli il livello di difficoltà \nFacile\nMedio\nDifficile").trim().toLowerCase();
-
 }
+
+difficoltà = nomeCompleto(difficoltà);
+//console.log(difficoltà);
+//console.log("2 chek superato");
 
 switch (difficoltà){
   case "facile":
     var max = 100;
-    console.log("Facile funziona");
+    //console.log("Facile funziona");
   break;
 
   case "medio":
     var max = 80;
-    console.log("m funziona");
+    //console.log("m funziona");
   break;
 
   case "difficile":
     var max = 50;
-    console.log("d funziona");
+    //console.log("d funziona");
   break;
 
 }
@@ -46,15 +50,15 @@ var gameOver = false;
 var contatore = 0;
 var numeriUtente = [];
 
-var differenza = max - 16;
+var differenza = max - mine.length;
 
 
 while(!gameOver){
 
-  var sceltaUtente = parseInt(prompt("Inserisci un numero compreso tra 1 e 100"));
+  var sceltaUtente = parseInt(prompt("Modalita di gioco " + difficoltà + "\nInserisci un numero compreso tra 1 e " + max));
   
-  while(isNaN(sceltaUtente) || sceltaUtente == 0 || sceltaUtente > max || numeriUtente.includes(sceltaUtente)){
-    sceltaUtente = parseInt(prompt("Hai già inserito questo numero oppure il numero non è valido inserisci un numero compresa tra 1 e 100"));
+  while(isNaN(sceltaUtente) || (sceltaUtente == 0) || (sceltaUtente > max ) ||( numeriUtente.includes(sceltaUtente))){
+    sceltaUtente = parseInt(prompt("Modalita di gioco " + difficoltà + "\nHai già inserito questo numero oppure il numero non è valido inserisci un numero compresa tra 1 e " + max)); 
   }
  
 
@@ -63,12 +67,14 @@ while(!gameOver){
     alert("Mi dispiace hai perso");
     console.log("hai giocatore per " + contatore + " volte");
     console.log("il numero che hai inserito " + sceltaUtente + " è un numero bomba ");
+    console.log("copia questo link https://bit.ly/2Xf2wrC");
   } else {
     contatore += 1;
     numeriUtente.push(sceltaUtente);
   }
 
   if(numeriUtente.length == differenza){
+    gameOver = true;
     alert("Complimenti hai vinto");
     console.log("Complimenti hai vinto");
     console.log("Hai inserito " + contatore + " numeri senza sbagliare");
@@ -92,4 +98,19 @@ function randomNumbers(min , max) {
   }
 
   return output;
+}
+
+
+
+function nomeCompleto ( word){
+  if (word == "f"){
+    word = "facile";
+  } else if (word== "m"){
+    word = "media";
+  } else if (word == "d"){
+    word = "difficile";
+  } 
+
+  return word;
+
 }
