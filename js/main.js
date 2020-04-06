@@ -44,7 +44,7 @@ switch (difficoltà){
 
 
 var mine = randomNumbers(1, max);
-console.log(mine);
+//console.log(mine);
 
 var gameOver = false;
 var contatore = 0;
@@ -67,6 +67,7 @@ while(!gameOver){
     alert("Mi dispiace hai perso");
     console.log("hai giocatore per " + contatore + " volte");
     console.log("il numero che hai inserito " + sceltaUtente + " è un numero bomba ");
+    console.log("I numeri bomba sono : " + mine)
     console.log("copia questo link https://bit.ly/2Xf2wrC");
   } else {
     contatore += 1;
