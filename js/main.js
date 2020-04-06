@@ -14,13 +14,45 @@ console.log(mine);
 
 
 
+var gameOver = false;
+var contatore = 0;
+var numeriUtente = [];
 
+
+
+
+while(!gameOver){
+
+  var sceltaUtente = parseInt(prompt("Inserisci un numero compreso tra 1 e 100"));
+  
+  while(isNaN(sceltaUtente) || sceltaUtente == 0 || sceltaUtente > 100 || numeriUtente.includes(sceltaUtente)){
+    sceltaUtente = parseInt(prompt("Hai già inserito questo numero oppure il numero non è valido inserisci un numero compresa tra 1 e 100"));
+  }
+ 
+
+  if(mine.includes(sceltaUtente)){
+    gameOver = true;
+    alert("Mi dispiace hai perso")
+    console.log("hai giocatore per " + contatore + " volte")
+    console.log("il numero che hai inserito " + sceltaUtente + " è un numero bomba ")
+  } else {
+    contatore += 1;
+    numeriUtente.push(sceltaUtente);
+  }
+
+  if(numeriUtente.length == 84){//qui dovrà andare la differenza cooming soon
+    gameOver = true;
+    alert("Complimenti hai vinto")
+    console.log("Hai inserito " + contatore + " numeri senza sbagliare")
+  }
+
+}
 
 
 function randomNumbers(max, min) {
   var output = [];
   var appoggio = 0;
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < 16; i++) {
 
     appoggio = Math.floor(Math.random() * (max - min) )+ min ;
 
@@ -30,6 +62,6 @@ function randomNumbers(max, min) {
      
     output.push(appoggio);
   }
-  
+
   return output;
 }
