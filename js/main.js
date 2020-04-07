@@ -39,10 +39,8 @@ button3.addEventListener('click',
 ) 
 
 
-
 function play (difficoltà){
- 
- 
+  
 console.log(difficoltà);
 //console.log("2 chek superato");
 
@@ -114,10 +112,10 @@ var output = [];
 var appoggio = 0;
 for (var i = 0; i < 16; i++) {
 
-appoggio = Math.floor(Math.random() * (100 - min) )+ min ;
+appoggio = Math.floor(Math.random() * (max - min) )+ min ;
 
 while(output.includes(appoggio)){
-appoggio = Math.floor(Math.random() * (100 - min) )+ min ;
+appoggio = Math.floor(Math.random() * (max - min) )+ min ;
 }
 
 output.push(appoggio);
@@ -128,7 +126,7 @@ return output;
 
 
 
-function nomeCompleto ( word){
+/* function nomeCompleto ( word){
 if (word == "f"){
 word = "facile";
 } else if (word== "m"){
@@ -139,7 +137,7 @@ word = "difficile";
 
 return word;
 
-}
+} */
 
 
 
