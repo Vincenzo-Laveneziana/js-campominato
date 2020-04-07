@@ -7,14 +7,26 @@
 body{
   font-family: 'Montserrat', sans-serif;
   background: #383838;
+  height: 100vh;
 }
+
 
 .container{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 100px);
+
 }
+
+h1{ 
+  text-align: center;
+  line-height: 100px;
+}
+
+
+
 
 .box{
   width: 150px;
@@ -24,16 +36,32 @@ body{
   font-weight: bold;
   border: 0;
   border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+
 }
 
 .green{
   background: green;
+  transform: scale(1);
+  transition: all 1s;
 }
 
 .yellow{
   background: yellow;
+  transform: scale(1);
+  transition: all 1s;
 }
 
 .rosso{
   background: red;
+  transform: scale(1);
+  transition: all 1s;
+}
+
+.green:hover,
+.yellow:hover,
+.rosso:hover{
+  transform: scale(1.2);
+  transition: all 1.2s;
 }
