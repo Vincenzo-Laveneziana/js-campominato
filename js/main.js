@@ -41,87 +41,87 @@ button3.addEventListener('click',
 
 function play (difficoltà){
   
-console.log(difficoltà);
-//console.log("2 chek superato");
+  console.log(difficoltà);
+  //console.log("2 chek superato");
 
 
-switch (difficoltà){
-  case "facile":
-    var max = 100;
-    console.log("Facile funziona");
-  break;
+  switch (difficoltà){
+    case "facile":
+      var max = 100;
+      console.log("Facile funziona");
+    break;
 
-   case "medio":
-    var max = 80;
-    console.log("m funziona");
-  break;
+    case "medio":
+      var max = 80;
+      console.log("m funziona");
+    break;
 
-  case "difficile":
-    var max = 50;
-    console.log("d funziona");
-  break; 
+    case "difficile":
+      var max = 50;
+      console.log("d funziona");
+    break; 
 
-}
-
-
-var mine = randomNumbers(1, max);
-console.log(mine);
-
-var gameOver = false;
-var contatore = 0;
-var numeriUtente = [];
-
-var differenza = max - mine.length;
+  }
 
 
-while(!gameOver){
+  var mine = randomNumbers(1, max);
+  console.log(mine);
 
-  var sceltaUtente = parseInt(prompt("Modalita di gioco " + difficoltà + "\nInserisci un numero compreso tra 1 e " + max));
+  var gameOver = false;
+  var contatore = 0;
+  var numeriUtente = [];
+
+  var differenza = max - mine.length;
+
+
+  while(!gameOver){
+
+    var sceltaUtente = parseInt(prompt("Modalita di gioco " + difficoltà + "\nInserisci un numero compreso tra 1 e " + max));
+    
+    while(isNaN(sceltaUtente) || (sceltaUtente == 0) || (sceltaUtente > max ) ||( numeriUtente.includes(sceltaUtente))){
+      sceltaUtente = parseInt(prompt("Modalita di gioco " + difficoltà + "\nHai già inserito questo numero oppure il numero non è valido inserisci un numero compresa tra 1 e " + max)); 
+    }
   
-  while(isNaN(sceltaUtente) || (sceltaUtente == 0) || (sceltaUtente > max ) ||( numeriUtente.includes(sceltaUtente))){
-    sceltaUtente = parseInt(prompt("Modalita di gioco " + difficoltà + "\nHai già inserito questo numero oppure il numero non è valido inserisci un numero compresa tra 1 e " + max)); 
-  }
- 
 
-  if(mine.includes(sceltaUtente)){
-    gameOver = true;
-    alert("Mi dispiace hai perso");
-    console.log("hai giocatore per " + contatore + " volte");
-    console.log("il numero che hai inserito " + sceltaUtente + " è un numero bomba ");
-    console.log("I numeri bomba sono : " + mine)
-    console.log("copia questo link https://bit.ly/2Xf2wrC");
-  } else {
-    contatore += 1;
-    numeriUtente.push(sceltaUtente);
-  }
+    if(mine.includes(sceltaUtente)){
+      gameOver = true;
+      alert("Mi dispiace hai perso");
+      console.log("hai giocatore per " + contatore + " volte");
+      console.log("il numero che hai inserito " + sceltaUtente + " è un numero bomba ");
+      console.log("I numeri bomba sono : " + mine)
+      console.log("copia questo link https://bit.ly/2Xf2wrC");
+    } else {
+      contatore += 1;
+      numeriUtente.push(sceltaUtente);
+    }
 
-  if(numeriUtente.length == differenza){
-    gameOver = true;
-    alert("Complimenti hai vinto");
-    console.log("Complimenti hai vinto");
-    console.log("Hai inserito " + contatore + " numeri senza sbagliare");
-  }
+    if(numeriUtente.length == differenza){
+      gameOver = true;
+      alert("Complimenti hai vinto");
+      console.log("Complimenti hai vinto");
+      console.log("Hai inserito " + contatore + " numeri senza sbagliare");
+    }
 
-}
+  }
 
 }
 
 
 function randomNumbers(min , max) {
-var output = [];
-var appoggio = 0;
-for (var i = 0; i < 16; i++) {
+  var output = [];
+  var appoggio = 0;
+  for (var i = 0; i < 16; i++) {
 
-appoggio = Math.floor(Math.random() * max) + min ;
+  appoggio = Math.floor(Math.random() * max) + min ;
 
-while(output.includes(appoggio)){
-appoggio = Math.floor(Math.random() * max) + min ;
-}
+  while(output.includes(appoggio)){
+  appoggio = Math.floor(Math.random() * max) + min ;
+  }
 
-output.push(appoggio);
-}
+  output.push(appoggio);
+  }
 
-return output;
+  return output;
 }
 
 
