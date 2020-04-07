@@ -12,7 +12,6 @@ con difficoltà 2=> tra 1 e 50
 */
 
 
-
 var button1 = document.getElementById('facile');
 
 var button2 = document.getElementById('medio');
