@@ -102,9 +102,9 @@ function play (difficoltà){
       console.log("Hai inserito " + contatore + " numeri senza sbagliare");
     }
 
-  }
+  }//fine while game over
 
-}
+}//fine function play
 
 
 function randomNumbers(min , max) {
@@ -178,7 +178,7 @@ return word;
 
 
 
-
+//////////////////GIOCO NON ASSOCIATO AL CSS
 
 
 
