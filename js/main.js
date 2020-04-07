@@ -65,7 +65,7 @@ switch (difficoltà){
 
 
 var mine = randomNumbers(1, max);
-//console.log(mine);
+console.log(mine);
 
 var gameOver = false;
 var contatore = 0;
@@ -112,10 +112,10 @@ var output = [];
 var appoggio = 0;
 for (var i = 0; i < 16; i++) {
 
-appoggio = Math.floor(Math.random() * (max - min) )+ min ;
+appoggio = Math.floor(Math.random() * max) + min ;
 
 while(output.includes(appoggio)){
-appoggio = Math.floor(Math.random() * (max - min) )+ min ;
+appoggio = Math.floor(Math.random() * max) + min ;
 }
 
 output.push(appoggio);
